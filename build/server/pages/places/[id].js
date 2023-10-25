@@ -25,7 +25,6 @@ __webpack_require__.r(__webpack_exports__);
 // This function gets called at build time
 
 async function getStaticPaths() {
-    console.log("static paths");
     return {
         // Only `/posts/1` and `/posts/2` are generated at build time
         paths: [],
@@ -35,7 +34,7 @@ async function getStaticPaths() {
     };
 }
 const getStaticProps = async (context)=>{
-    const queryParam = context.query.id;
+    const queryParam = context.params.id;
     const res = await fetch(`http://localhost:3009/${queryParam}`);
     const repo = await res.json();
     return {

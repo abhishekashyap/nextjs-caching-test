@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = async (context) => {
-  const queryParam = context.query.id;
+  const queryParam = context.params.id;
   const res = await fetch(`http://localhost:3009/${queryParam}`);
   const repo = await res.json();
   return { props: { repo } };
