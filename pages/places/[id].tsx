@@ -25,7 +25,29 @@ export const getStaticProps = async (context) => {
 
 const Index = ({ repo }) => {
   console.log("repo: ", repo);
-  return <div>Index page: {repo}</div>;
+
+  const handleOnClick = async () => {
+    if (window) {
+      const prompt = window.prompt(
+        "Enter the query param you want to revalidate"
+      );
+      await fetch("/api/revalidate?secret=supersecret", {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify({ url: `/places/${prompt}` }),
+      });
+    }
+  };
+
+  return (
+    <div>
+      <h1>Index page: {repo}</h1>
+      <button onClick={handleOnClick}>Revalidate cache</button>
+    </div>
+  );
 };
 
 export default Index;
