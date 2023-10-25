@@ -1,0 +1,19 @@
+{
+  "name": "next-12-caching",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^12.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "20.8.8",
+    "@types/react": "18.2.31",
+    "typescript": "5.2.2"
+  }
+}
